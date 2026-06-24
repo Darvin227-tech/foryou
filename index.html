@@ -162,7 +162,6 @@
             100% { transform: translateY(-30px) scale(0); opacity: 0; }
         }
 
-        /* Модальное окно со слайдером */
         .modal {
             display: none;
             position: fixed;
@@ -251,7 +250,6 @@
             right: 10px;
         }
 
-        /* Таймлайн */
         .timeline-section {
             margin: 40px 0;
             background: rgba(255, 255, 255, 0.25);
@@ -502,9 +500,7 @@
 <body>
     <div class="hearts-bg" id="heartsContainer"></div>
 
-    <!-- Музыка -->
     <audio id="bgMusic" src="images/Song.mp3" loop></audio>
-    <!-- Голосовое сообщение (теперь vvoice.mp3) -->
     <audio id="voiceMessage" src="images/vvoice.mp3"></audio>
 
     <div class="music-btn" id="musicToggle" title="Включить музыку">🔇</div>
@@ -520,6 +516,7 @@
             <h2 class="gallery-title">Наши мгновения 📸</h2>
             <div class="sparkle-container" id="sparkleBox">
                 <div class="gallery" id="gallery">
+                    <!-- Фото строго по твоему списку -->
                     <div class="photo-card"><img src="images/photo1.jpg" alt="Мы вместе" onclick="openModal(this.src)"></div>
                     <div class="photo-card"><img src="images/photo2.jpg" alt="Счастливый момент" onclick="openModal(this.src)"></div>
                     <div class="photo-card"><img src="images/photo3.jpg" alt="Любовь" onclick="openModal(this.src)"></div>
@@ -529,9 +526,11 @@
                     <div class="photo-card"><img src="images/photo7.jpg" alt="Наше приключение" onclick="openModal(this.src)"></div>
                     <div class="photo-card"><img src="images/photo8.jpg" alt="Объятия" onclick="openModal(this.src)"></div>
                     <div class="photo-card"><img src="images/photo9.jpg" alt="Прогулка" onclick="openModal(this.src)"></div>
-                    <div class="photo-card"><img src="images/photo10.jpg" alt="Свидание" onclick="openModal(this.src)"></div>
-                    <div class="photo-card"><img src="images/photo11.jpg" alt="Радость" onclick="openModal(this.src)"></div>
-                    <div class="photo-card"><img src="images/photo12.jpg" alt="Счастье" onclick="openModal(this.src)"></div>
+                    <div class="photo-card"><img src="images/photo11.jpg" alt="Свидание" onclick="openModal(this.src)"></div>
+                    <div class="photo-card"><img src="images/photo12.jpg" alt="Радость" onclick="openModal(this.src)"></div>
+                    <div class="photo-card"><img src="images/photo13.jpg" alt="Счастье" onclick="openModal(this.src)"></div>
+                    <div class="photo-card"><img src="images/photo14.jpg" alt="Незабываемый день" onclick="openModal(this.src)"></div>
+                    <div class="photo-card"><img src="images/Photo15.jpg" alt="Лучший момент" onclick="openModal(this.src)"></div>
                 </div>
             </div>
         </section>
@@ -598,7 +597,6 @@
     </div>
 
     <script>
-        // 1. Плавающие сердечки
         const heartsContainer = document.getElementById('heartsContainer');
         function createHeart() {
             const heart = document.createElement('div');
@@ -612,7 +610,6 @@
         }
         setInterval(createHeart, 300);
 
-        // 2. Модальное окно + слайдер
         const galleryImages = Array.from(document.querySelectorAll('#gallery img')).map(img => img.src);
         let currentIndex = 0;
 
@@ -644,7 +641,6 @@
             if (e.key === 'ArrowRight') changeSlide(1);
         });
 
-        // 3. Анимация появления
         const revealElements = document.querySelectorAll('.reveal');
         function revealOnScroll() {
             revealElements.forEach(el => {
@@ -654,7 +650,6 @@
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
 
-        // 4. Искры
         const sparkleBox = document.getElementById('sparkleBox');
         function createSparkle() {
             const spark = document.createElement('div');
@@ -667,7 +662,6 @@
         }
         setInterval(createSparkle, 300);
 
-        // 5. Печатающийся заголовок
         const typedTitle = document.getElementById('typedTitle');
         const fullText = "Ты — моё волшебство 💖";
         let i = 0;
@@ -681,7 +675,6 @@
         }
         window.addEventListener('load', typeWriter);
 
-        // 6. Сердечки по клику
         document.addEventListener('click', function(e) {
             const heart = document.createElement('span');
             heart.className = 'click-heart';
@@ -692,7 +685,6 @@
             setTimeout(() => heart.remove(), 800);
         });
 
-        // 7. Музыка
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicToggle');
         let isMusicPlaying = false;
@@ -713,7 +705,6 @@
             isMusicPlaying = !isMusicPlaying;
         });
 
-        // 8. Голосовое сообщение (vvoice.mp3)
         const voice = document.getElementById('voiceMessage');
         const voiceBtn = document.getElementById('voiceToggle');
         let isVoicePlaying = false;
